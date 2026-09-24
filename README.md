@@ -87,9 +87,17 @@ flutter pub get
 flutter run
 ```
 
-4. Para gerar o instalador APK:
+4. Para gerar o instalador APK otimizado (< 20 MB):
+```bash
+flutter build apk --split-per-abi
+```
+Os arquivos gerados estarão em `build/app/outputs/flutter-apk/`:
+* `app-arm64-v8a-release.apk` (~16.4 MB - para a grande maioria dos smartphones Android modernos)
+* `app-armeabi-v7a-release.apk` (~13.8 MB - para aparelhos de 32 bits)
+* `app-x86_64-release.apk` (~17.7 MB - para emuladores x86_64)
+
+Ou para gerar o APK universal único:
 ```bash
 flutter build apk --release
 ```
-O arquivo APK gerado estará disponível no caminho:
-`build/app/outputs/flutter-apk/app-release.apk`
+Caminho: `build/app/outputs/flutter-apk/app-release.apk`
